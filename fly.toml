@@ -53,9 +53,9 @@ processes = []
     tls_skip_verify = false
     [services.http_checks.headers]
 
-#  [[services.script_checks]]
-#    interval = 10000
-#    timeout = 1000
-#    command = "./health_check.sh"
-#    restart_limit = 0
+  [[services.script_checks]]
+    interval = 10000
+    timeout = 1000
+    command = "./health_check.sh"
+    restart_limit = 0
 
