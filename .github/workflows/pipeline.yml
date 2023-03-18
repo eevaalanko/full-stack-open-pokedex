@@ -32,7 +32,7 @@ jobs:
   tag_release:
     needs: [pre_deployment_tasks]
     runs-on: ubuntu-20.04
-    if: ${{ github.event_name == 'push' }}
+    if: ${{ github.event_name == 'push' && !contains(join(toJSon(github.event.commits.*.message)), 'skip') }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -48,7 +48,7 @@ jobs:
     name: Deploy app
     needs: [pre_deployment_tasks]
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'push' }}
+    if: ${{ github.event_name == 'push' && !contains(join(toJSon(github.event.commits.*.message)), 'skip') }}
     steps:
       - uses: actions/checkout@v3
       - uses: superfly/flyctl-actions/setup-flyctl@master
