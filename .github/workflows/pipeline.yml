@@ -9,7 +9,7 @@ on:
     types: [opened, synchronize]
 
 jobs:
-  simple_deployment_pipeline:
+  pre_deployment_tasks:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
@@ -31,6 +31,7 @@ jobs:
 
   deploy:
     name: Deploy app
+    needs: [pre_deployment_tasks]
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'push' }}
     steps:
