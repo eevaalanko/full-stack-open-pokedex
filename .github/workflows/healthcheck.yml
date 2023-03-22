@@ -5,9 +5,9 @@ on:
     # * is a special character in YAML so you have to quote this string
     - cron:  '30 5,18 * * *'
 
-
 jobs:
   health_check:
+    runs-on: ubuntu-20.04
     steps:
       - name: Check the deployed service URL
         uses: jtalk/url-health-check-action@v3
