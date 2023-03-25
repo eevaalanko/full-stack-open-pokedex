@@ -15,3 +15,8 @@ Start by running `npm install` inside the project folder
 `npm run start-prod` to run your production build
 
 
+## Other own app (exercise 11.20)
+
+https://github.com/eevaalanko/full-stack-open-pipeline
+
+
